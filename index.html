@@ -4,349 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Institut Teknologi Sumatera - ITERA</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #fef9e7;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            background: linear-gradient(to right, #FFD700, #FFC400);
-            color: #333;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 60px;
-            margin-right: 15px;
-        }
-        
-        .logo h1 {
-            font-size: 1.5rem;
-            color: #333;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-        }
-
-        nav {
-            background-color: #FFA500;
-            padding: 0.5rem 0;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-right: 20px;
-        }
-        
-        nav ul li a {
-            color: #333;
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        main {
-            padding: 2rem 0;
-            background-color: white;
-            min-height: 70vh;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 2rem 0;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23FFD700"/></svg>');
-            background-size: cover;
-            color: white;
-            margin-bottom: 2rem;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .content-section {
-            margin-bottom: 2rem;
-        }
-        
-        .content-section h2 {
-            color: #FF8C00;
-            border-bottom: 2px solid #FFD700;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            background-color: #FF8C00;
-            color: #333;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-content p {
-            margin-bottom: 1rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-        
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #FFD700;
-            color: #333;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #fff9e6;
-        }
-
-        .news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .news-card {
-            background: white;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            border-top: 4px solid #FFD700;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .news-content {
-            padding: 1.5rem;
-        }
-        
-        .news-content h3 {
-            color: #FF8C00;
-            margin-bottom: 0.5rem;
-        }
-        
-        .news-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #FFD700;
-            color: #333;
-            padding: 8px 15px;
-            border-radius: 3px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #FFC400;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-info {
-            background-color: #fff9e6;
-            padding: 1.5rem;
-            border-radius: 5px;
-            border-left: 4px solid #FFD700;
-        }
-        
-        .contact-info h3 {
-            color: #FF8C00;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-icon {
-            margin-right: 15px;
-            color: #FF8C00;
-            font-size: 1.2rem;
-            min-width: 20px;
-        }
-        
-        .contact-form {
-            background-color: #fff9e6;
-            padding: 1.5rem;
-            border-radius: 5px;
-            border-left: 4px solid #FFD700;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .map-container {
-            margin-top: 2rem;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo {
-                margin-bottom: 1rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 5px 0;
-            }
-            
-            .news-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="container header-content">
-            <div class="logo">
-                <img src="images/ITERA.jpg" width="60" height="60" style="border-radius: 50%; object-fit: cover;" alt="Logo ITERA">
+            <a href="index.html" class="logo">
+                <img src="images/ITERA.jpg" alt="Logo ITERA">
                 <h1>Institut Teknologi Sumatera</h1>
-            </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#program-studi">Program Studi</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#program-studi">Program Studi</a></li>
-                <li><a href="berita.html">Berita</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <main>
-        <div class="container">
-            <section class="hero">
-                <h2>Selamat Datang di ITERA</h2>
-                <p>Institut Teknologi Sumatera merupakan perguruan tinggi negeri yang berkedudukan di Lampung Selatan, Provinsi Lampung.</p>
-            </section>
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="animate-on-scroll slide-in-top">Selamat Datang di ITERA</h2>
+                <p class="animate-on-scroll slide-in-bottom">Institut Teknologi Sumatera merupakan perguruan tinggi negeri yang berkedudukan di Lampung Selatan, Provinsi Lampung.</p>
+            </div>
+        </section>
 
-            <section id="tentang" class="content-section">
+        <div class="container">
+            <section id="tentang" class="content-section animate-on-scroll fade-in">
                 <h2>Tentang ITERA</h2>
-                <p>Institut Teknologi Sumatera (ITERA) adalah perguruan tinggi negeri yang didirikan pada tahun 2014 berdasarkan Peraturan Presiden Republik Indonesia Nomor 124 Tahun 2014 tentang Pendirian Institut Teknologi Sumatera. Kampus ITERA terletak di Jalan Terusan Ryacudu, Desa Way Hui, Kecamatan Jati Agung, Kabupaten Lampung Selatan.</p>
+                <p>Institut Teknologi Sumatera (ITERA) adalah perguruan tinggi negeri yang didirikan pada tahun 2014. Kampus ITERA terletak di Jalan Terusan Ryacudu, Desa Way Hui, Kecamatan Jati Agung, Kabupaten Lampung Selatan.</p>
                 <p>ITERA hadir untuk menjawab kebutuhan akan pendidikan tinggi teknologi di Sumatera dan menjadi pusat unggulan dalam pengembangan sains, teknologi, dan seni yang berwawasan lingkungan.</p>
             </section>
 
-            <section id="program-studi" class="content-section">
+            <section id="program-studi" class="content-section animate-on-scroll fade-in">
                 <h2>Program Studi</h2>
-                <p>ITERA menyelenggarakan berbagai program studi dalam bidang sains, teknologi, dan teknik yang relevan dengan kebutuhan pembangunan regional dan nasional.</p>
-                
+                <p>ITERA menyelenggarakan berbagai program studi dalam bidang sains, teknologi, dan teknik yang relevan dengan kebutuhan pembangunan.</p>
                 <table>
                     <thead>
                         <tr>
@@ -384,86 +80,11 @@
                     </tbody>
                 </table>
             </section>
-
-            <section id="kontak" class="content-section">
-                <h2>Kontak Kami</h2>
-                <p>Hubungi ITERA melalui informasi kontak di bawah ini atau gunakan formulir untuk mengirimkan pesan.</p>
-                
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Informasi Kontak</h3>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <strong>Alamat</strong><br>
-                                Jalan Terusan Ryacudu, Desa Way Hui<br>
-                                Kec. Jati Agung, Lampung Selatan 35365
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">📞</div>
-                            <div>
-                                <strong>Telepon</strong><br>
-                                (0721) 8030188
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">✉️</div>
-                            <div>
-                                <strong>Email</strong><br>
-                                info@itera.ac.id
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <div class="contact-icon">🌐</div>
-                            <div>
-                                <strong>Website</strong><br>
-                                www.itera.ac.id
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <h3>Kirim Pesan</h3>
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Nama Lengkap</label>
-                                <input type="text" id="name" placeholder="Masukkan nama lengkap">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="Masukkan alamat email">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="subject">Subjek</label>
-                                <input type="text" id="subject" placeholder="Masukkan subjek pesan">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Pesan</label>
-                                <textarea id="message" placeholder="Tulis pesan Anda di sini"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn">Kirim Pesan</button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="map-container">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.66321848127!2d105.312775274639!3d-5.358253394674049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40cac0695d9375%3A0x14b1a59c8c0bffb2!2sInstitut%20Teknologi%20Sumatera%20(ITERA)!5e0!3m2!1sid!2sid!4v1697212345678!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </section>
-
-            <section id="berita-terbaru" class="content-section">
+            
+            <section id="berita-terbaru" class="content-section animate-on-scroll fade-in">
                 <h2>Berita Terbaru</h2>
                 <div class="news-container">
-                    <article class="news-card">
+                    <article class="news-card animate-on-scroll fade-in">
                         <div class="news-content">
                             <h3>ITERA Resmikan Laboratorium Baru</h3>
                             <p class="news-date">12 Oktober 2023</p>
@@ -471,35 +92,83 @@
                             <a href="berita.html#lab-baru" class="btn">Baca selengkapnya</a>
                         </div>
                     </article>
-                    
-                    <article class="news-card">
+                    <article class="news-card animate-on-scroll fade-in">
                         <div class="news-content">
-                            <h3>Mahasiswa ITERA Juara Kompetisi Robotik Nasional</h3>
+                            <h3>Mahasiswa ITERA Juara Robotik</h3>
                             <p class="news-date">5 Oktober 2023</p>
                             <p>Tim robotik ITERA berhasil meraih juara pertama dalam kompetisi robotik nasional yang diselenggarakan di Jakarta.</p>
                             <a href="berita.html#juara-robotik" class="btn">Baca selengkapnya</a>
                         </div>
                     </article>
-                    
-                    <article class="news-card">
+                    <article class="news-card animate-on-scroll fade-in">
                         <div class="news-content">
-                            <h3>ITERA Jalin Kerjasama dengan Universitas di Jepang</h3>
+                            <h3>Kerjasama dengan Universitas Jepang</h3>
                             <p class="news-date">28 September 2023</p>
-                            <p>ITERA menandatangani nota kesepahaman dengan Universitas Tokyo untuk kerjasama dalam penelitian dan pertukaran mahasiswa.</p>
+                            <p>ITERA menandatangani nota kesepahaman dengan Universitas Tokyo untuk kerjasama penelitian.</p>
                             <a href="berita.html#kerjasama-jepang" class="btn">Baca selengkapnya</a>
                         </div>
                     </article>
                 </div>
             </section>
+
+            <section id="kontak" class="content-section animate-on-scroll fade-in">
+                <h2>Kontak Kami</h2>
+                <p>Hubungi kami melalui informasi di bawah ini atau gunakan formulir untuk mengirimkan pesan.</p>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Informasi Kontak</h3>
+                        <div class="contact-detail">
+                            <span class="contact-icon">📍</span>
+                            <div><strong>Alamat</strong><br>Jalan Terusan Ryacudu, Way Hui, Jati Agung, Lampung Selatan 35365</div>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-icon">📞</span>
+                            <div><strong>Telepon</strong><br>(0721) 8030188</div>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-icon">✉️</span>
+                            <div><strong>Email</strong><br>info@itera.ac.id</div>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-icon">🌐</span>
+                            <div><strong>Website</strong><br>www.itera.ac.id</div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Kirim Pesan</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nama Lengkap</label>
+                                <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Masukkan email Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan</label>
+                                <textarea id="message" placeholder="Tulis pesan Anda di sini" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.66321848127!2d105.312775274639!3d-5.358253394674049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40cac0695d9375%3A0x14b1a59c8c0bffb2!2sInstitut%20Teknologi%20Sumatera%20(ITERA)!5e0!3m2!1sid!2sid!4v1697212345678!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
         </div>
     </main>
+    
+    <div id="scrollToTop" class="scroll-to-top">↑</div>
 
     <footer>
         <div class="container footer-content">
             <p>&copy; 2023 Institut Teknologi Sumatera. All Rights Reserved.</p>
             <p>Jalan Terusan Ryacudu, Desa Way Hui, Kec. Jati Agung, Lampung Selatan 35365</p>
-            <p>Email: info@itera.ac.id | Telp: (0721) 8030188</p>
         </div>
     </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
